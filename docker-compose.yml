@@ -1,18 +1,12 @@
-version: '3'
+version: '3.8'
 
 services:
-  mysql:
-    image: mysql:latest
-    container_name: meu-mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: minhaSenhaRoot
-      MYSQL_DATABASE: meu_banco_de_dados
-      MYSQL_USER: meu_usuario
-      MYSQL_PASSWORD: minhaSenhaUsuario
+  postgres:
+    container_name: estacionamento_postgres
+    image: postgres
     ports:
-      - "5432:5432"
-    volumes:
-      - mysql_data:/var/lib/mysql
-
-volumes:
-  mysql_data:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=estacionamento_db
