@@ -20,13 +20,11 @@ public class Veiculo {
     private Long id;
 
     private String placa;
-    private String modelo;
     private LocalDateTime entrada;
     private LocalDateTime saida;
 
-    public Veiculo(String placa, String modelo) {
+    public Veiculo(String placa) {
         this.placa = placa;
-        this.modelo = modelo;
         this.entrada = LocalDateTime.now(); // Registra a entrada automaticamente no momento da criação do veículo
     }
 
