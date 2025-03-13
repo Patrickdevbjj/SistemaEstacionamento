@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDateTime;
 
@@ -30,6 +31,7 @@ public class RegistroEntrada {
         this.veiculo = veiculo;
         this.dataHoraEntrada = dataHoraEntrada;
     }
+
 
 
 }
