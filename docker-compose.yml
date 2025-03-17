@@ -4,9 +4,15 @@ services:
   postgres:
     container_name: estacionamento_postgres
     image: postgres
+    restart: always
     ports:
-      - 5432:5432
+      - "5432:5432"
     environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=admin
-      - POSTGRES_DB=estacionamento_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: estacionamento_db
+    volumes:
+      - estacionamento_data:/var/lib/postgresql/data
+
+volumes:
+  estacionamento_data:
