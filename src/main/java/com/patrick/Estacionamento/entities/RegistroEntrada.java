@@ -16,20 +16,26 @@ import java.time.LocalDateTime;
 public class RegistroEntrada {
 
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    @NotNull(message = "O veiculo é obrigatorio para registrar uma entrada")
+    @ManyToOne  // Alterado para ManyToOne (um veículo pode ter múltiplas entradas)
+    @NotNull(message = "O veículo é obrigatório para registrar uma entrada")
     private Veiculo veiculo;
 
     private LocalDateTime dataHoraEntrada;
 
+    @OneToOne(mappedBy = "registroEntrada", cascade = CascadeType.ALL)
+    private RegistroSaida registroSaida;
+
     public RegistroEntrada(Veiculo veiculo, LocalDateTime dataHoraEntrada) {
         this.veiculo = veiculo;
         this.dataHoraEntrada = dataHoraEntrada;
+    }
+
+    public boolean estaAtivo() {
+        return registroSaida == null;
     }
 
 
