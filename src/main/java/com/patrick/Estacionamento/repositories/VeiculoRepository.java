@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface VeiculoRepository extends JpaRepository<Veiculo, Long> {
 
-        Veiculo findByPlate(String placa);
 
     Veiculo findByPlaca(@NotBlank(message = "Obrigatório informar a placa") String placa);
 }

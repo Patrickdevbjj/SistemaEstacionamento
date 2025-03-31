@@ -4,11 +4,12 @@ import com.patrick.Estacionamento.entities.RegistroEntrada;
 import com.patrick.Estacionamento.entities.Veiculo;
 import com.patrick.Estacionamento.repositories.RegistroEntradaRepository;
 import com.patrick.Estacionamento.repositories.VeiculoRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-
+@Transactional
 @Service
 public class EntradaService {
 
