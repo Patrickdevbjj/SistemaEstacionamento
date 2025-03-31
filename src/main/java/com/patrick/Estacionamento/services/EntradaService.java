@@ -33,4 +33,13 @@ public class EntradaService {
         // Salva o registro de entrada
         registroEntradaRepository.save(registroEntrada);
     }
+    /**
+     * Busca um registro de entrada ativo (sem data de saída) pela placa do veículo
+     * @param placa Placa do veículo a ser buscado
+     * @return RegistroEntrada correspondente ou null se não encontrado
+     */
+    public RegistroEntrada buscarEntradaAtivaPorPlaca(String placa) {
+        return registroEntradaRepository.findByVeiculoPlacaAndDataHoraSaidaIsNull(placa)
+                .orElse(null);
+    }
 }
