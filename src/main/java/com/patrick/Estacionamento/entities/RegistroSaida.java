@@ -18,17 +18,18 @@ public class RegistroSaida {
     private Long id;
 
     @OneToOne
-    private Veiculo veiculo;
+    @JoinColumn(name = "registro_entrada_id")
+    private RegistroEntrada registroEntrada;  // Relacionamento com a entrada
 
     private LocalDateTime dataHoraSaida;
     private double valorPago;
 
-    public RegistroSaida(Veiculo veiculo, LocalDateTime dataHoraSaida, double valorPago) {
-        this.veiculo = veiculo;
+    // Removido o veiculo pois já está na entrada
+    public RegistroSaida(RegistroEntrada registroEntrada, LocalDateTime dataHoraSaida, double valorPago) {
+        this.registroEntrada = registroEntrada;
         this.dataHoraSaida = dataHoraSaida;
         this.valorPago = valorPago;
     }
-
 
 }
 
