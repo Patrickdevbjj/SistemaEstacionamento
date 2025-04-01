@@ -12,7 +12,7 @@ public interface RegistroEntradaRepository extends JpaRepository<RegistroEntrada
 
     RegistroEntrada findTopByVeiculoOrderByDataHoraEntradaDesc(Veiculo veiculo);
 
-    Optional<RegistroEntrada> findByVeiculoPlacaAndDataHoraSaidaIsNull(String placa);
+    Optional<RegistroEntrada> findByVeiculoPlaca(String placa);
 }
 
 

@@ -38,8 +38,8 @@ public class EntradaService {
      * @param placa Placa do veículo a ser buscado
      * @return RegistroEntrada correspondente ou null se não encontrado
      */
-    public RegistroEntrada buscarEntradaAtivaPorPlaca(String placa) {
-        return registroEntradaRepository.findByVeiculoPlacaAndDataHoraSaidaIsNull(placa)
+   public RegistroEntrada buscarEntradaAtivaPorPlaca(String placa) {
+       return registroEntradaRepository.findByVeiculoPlaca(placa)
                 .orElse(null);
-    }
+   }
 }

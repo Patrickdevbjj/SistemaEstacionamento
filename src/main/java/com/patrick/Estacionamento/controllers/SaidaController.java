@@ -12,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 
+import java.time.LocalDateTime;
+
 @Controller
 @RequestMapping("/saidas")
 public class SaidaController {
@@ -48,8 +50,11 @@ public class SaidaController {
                 return "saida/formulario";
             }
 
-            // Calcula o valor a pagar
-            double valor = calculadoraTarifa.calcular(registroEntrada.getDataHoraEntrada());
+            // Calcula o valor a pagar usando a data/hora atual como saída
+            double valor = calculadoraTarifa.calcular(
+                    registroEntrada.getDataHoraEntrada(),
+                    LocalDateTime.now() // Adiciona a data/hora atual como saída
+            );
 
             // Cria e salva o registro de saída
             RegistroSaida registroSaida = saidaService.registrarSaida(registroEntrada, valor, entradaId);

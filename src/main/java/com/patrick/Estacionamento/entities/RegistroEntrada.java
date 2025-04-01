@@ -34,10 +34,5 @@ public class RegistroEntrada {
         this.dataHoraEntrada = dataHoraEntrada;
     }
 
-    public boolean estaAtivo() {
-        return registroSaida == null;
-    }
-
-
 
 }

@@ -14,6 +14,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+
 @RestController
 @RequestMapping("/veiculos")
 public class VeiculoController {
@@ -32,8 +34,6 @@ public class VeiculoController {
             Map<String, Object> dados = new HashMap<>();
             dados.put("placa", veiculo.getPlaca());
 
-
-            // Buscar a última entrada do veículo
             RegistroEntrada ultimaEntrada = registroEntradaRepository
                     .findTopByVeiculoOrderByDataHoraEntradaDesc(veiculo);
 
